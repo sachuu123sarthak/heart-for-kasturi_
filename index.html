@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kasturi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff5fa2;
+  --white:#f5f5f5;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--white);
+  background:#0c0a09;
+  overflow-x:hidden;
+}
+
+/* 🌌 AURORA */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%, hsla(333,70%,55%,.35), transparent 60%),
+    radial-gradient(circle at 80% 40%, hsla(282,82%,54%,.3), transparent 60%),
+    radial-gradient(circle at 50% 80%, hsla(210,89%,60%,.3), transparent 60%),
+    radial-gradient(circle at 70% 10%, hsla(35,90%,60%,.25), transparent 60%);
+  animation:aurora 18s ease-in-out infinite alternate;
+  z-index:-2;
+}
+
+@keyframes aurora{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter:hue-rotate(45deg);}
+}
+
+/* 💖 FLOATING HEARTS */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0) scale(1);opacity:1;}
+  to{transform:translateY(-110vh) scale(1.6);opacity:0;}
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+.card{
+  max-width:900px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:24px;
+  padding:50px 40px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  animation:fadeUp 1.2s ease both;
+}
+
+h1,h2{
+  font-family:'Playfair Display',serif;
+  background:linear-gradient(90deg,#ffd1e8,#ffffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:1.1rem;
+  line-height:1.9;
+  opacity:0.95;
+}
+
+.btn{
+  margin-top:30px;
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:50px;
+  background:linear-gradient(90deg,#ff4d9d,#ff1f6a);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 25px rgba(255,80,150,0.5);
+  transition:.3s;
+  cursor:pointer;
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 0 45px rgba(255,80,150,0.9);
+}
+
+input{
+  padding:12px 18px;
+  border-radius:12px;
+  border:none;
+  font-size:1rem;
+  margin-top:15px;
+  width:100%;
+}
+
+.hidden{display:none;}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_946b36b1c2.mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<section>
+  <div class="card">
+    <h1 id="type"></h1>
+    <p>
+      This is not a website.
+      It’s a quiet place where my thoughts about you felt safe enough to exist.
+    </p>
+    <a class="btn" onclick="next('#p2');playMusic()">Continue</a>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="p2">
+  <div class="card">
+    <h2>For Kasturi</h2>
+    <p>
+      Long distance doesn’t weaken real connections.
+      It reveals them.
+    </p>
+    <p>
+      And somehow, you still feel close.
+    </p>
+    <a class="btn" onclick="next('#p3')">Next</a>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="p3">
+  <div class="card">
+    <h2>What I Admire</h2>
+    <p>
+      Your calm strength.
+      Your emotional depth.
+      The way you don’t force yourself to be seen —
+      yet still leave an impact.
+    </p>
+    <a class="btn" onclick="next('#p4')">Continue</a>
+  </div>
+</section>
+
+<!-- PAGE 4 -->
+<section id="p4">
+  <div class="card">
+    <h2>Distance Truth</h2>
+    <p>
+      Love isn’t measured in replies.
+      It’s measured in patience, respect, and intention.
+    </p>
+    <p>
+      And I have all three.
+    </p>
+    <a class="btn" onclick="next('#p5')">One More</a>
+  </div>
+</section>
+
+<!-- PAGE 5 PASSWORD -->
+<section id="p5">
+  <div class="card">
+    <h2>Hidden Message</h2>
+    <p>
+      This part is only for you.
+    </p>
+
+    <input type="password" id="pass" placeholder="Enter password">
+    <a class="btn" onclick="unlock()">Unlock</a>
+
+    <div id="secret" class="hidden">
+      <p style="margin-top:30px;">
+        If you’re here, it means you cared enough to try.
+      </p>
+      <p>
+        I don’t know what the future holds,
+        but I know this —
+        you are someone I deeply admire,
+        respect, and quietly care about.
+      </p>
+      <p>
+        No pressure.
+        No expectations.
+        Just truth.
+      </p>
+      <p style="margin-top:30px;font-weight:500;">
+        — Sachin
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+/* TYPEWRITER */
+const text="Hey Kasturi.";
+let i=0;
+(function type(){
+  if(i<text.length){
+    document.getElementById("type").innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(type,120);
+  }
+})();
+
+/* NAV */
+function next(id){
+  document.querySelector(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* MUSIC */
+function playMusic(){
+  document.getElementById("bgm").play().catch(()=>{});
+}
+
+/* HEARTS */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=["❤️","💖","💕"][Math.floor(Math.random()*3)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=6+Math.random()*4+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),10000);
+},600);
+
+/* CONFETTI */
+function confetti(){
+  for(let i=0;i<40;i++){
+    const c=document.createElement("div");
+    c.innerText=["✨","💖","❤️"][Math.floor(Math.random()*3)];
+    c.style.position="fixed";
+    c.style.left=Math.random()*100+"vw";
+    c.style.top="-20px";
+    c.style.fontSize="20px";
+    c.style.animation="floatUp 3s linear";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+
+/* PASSWORD */
+function unlock(){
+  if(document.getElementById("pass").value==="25/10"){
+    document.getElementById("secret").classList.remove("hidden");
+    confetti();
+  }else{
+    alert("Wrong password.");
+  }
+}
+</script>
+
+</body>
+</html>
